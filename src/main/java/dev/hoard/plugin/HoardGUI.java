@@ -102,9 +102,18 @@ public class HoardGUI {
             ItemStack head = new ItemStack(Material.PLAYER_HEAD);
             SkullMeta meta = (SkullMeta) head.getItemMeta();
             if (meta != null) {
-                try { meta.setOwningPlayer(Bukkit.getOfflinePlayer(entry.getKey())); } catch (Exception ignored) {}
+                try {
+                    com.destroystokyo.paper.profile.PlayerProfile profile =
+                        Bukkit.createProfile(entry.getKey(), pName);
+                    profile.complete(true); // fetch skin from Mojang
+                    meta.setPlayerProfile(profile);
+                } catch (Exception ignored) {
+                    try { meta.setOwningPlayer(Bukkit.getOfflinePlayer(entry.getKey())); } catch (Exception ignored2) {}
+                }
                 meta.setDisplayName(medals[i] + " " + ChatColor.WHITE + pName);
+                meta.setItemName(pName); // override "Dynamic"
                 meta.getPersistentDataContainer().set(GUI_KEY, PersistentDataType.INTEGER, -1);
+                meta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
                 java.util.List<String> lore = new java.util.ArrayList<>();
                 String label = job == HoardJob.HUNTER ? "Kills" : job == HoardJob.FISHERMAN ? "Fished" : "Broken";
                 lore.add(ChatColor.GRAY + label + ": " + ChatColor.WHITE + String.format("%,d", entry.getValue()));
