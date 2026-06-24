@@ -41,8 +41,7 @@ public enum HoardJob {
     }),
     FISHERMAN("Fisherman", ChatColor.AQUA, Material.FISHING_ROD, new Material[]{
         Material.COD, Material.SALMON, Material.TROPICAL_FISH, Material.PUFFERFISH,
-        Material.INK_SAC,
-        Material.GLOW_INK_SAC, Material.NAUTILUS_SHELL, Material.HEART_OF_THE_SEA,
+        Material.NAUTILUS_SHELL, Material.HEART_OF_THE_SEA,
         Material.SADDLE
     }),
     FARMER("Farmer", ChatColor.YELLOW, Material.IRON_HOE, new Material[]{
