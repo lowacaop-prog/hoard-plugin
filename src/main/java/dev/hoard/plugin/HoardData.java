@@ -4,6 +4,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.*;
 import java.util.*;
+import java.util.Set;
 public class HoardData {
     private final HoardPlugin plugin;
     private File dataFile;
@@ -43,6 +44,10 @@ public class HoardData {
         }
         list.sort((a, b) -> Long.compare(b.getValue(), a.getValue()));
         return list.subList(0, Math.min(10, list.size()));
+    }
+
+    public Set<UUID> getAllPlayerIds() {
+        return counts.keySet();
     }
 
     public void save(UUID uuid) {

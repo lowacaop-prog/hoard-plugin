@@ -35,8 +35,29 @@ public class HoardGUI {
                 long total = 0;
                 for (Material m : job.getItems()) total += data.getCount(player.getUniqueId(), m);
                 String totalLabel = job == HoardJob.HUNTER ? "Total Killed" : job == HoardJob.FISHERMAN ? "Total Fished" : job == HoardJob.MINER ? "Total Mined" : job == HoardJob.FARMER ? "Total Farmed" : "Total Broken";
+                // Calculate rank for total across all items in this job
+                java.util.Map<UUID, Long> jobTotals = new java.util.HashMap<>();
+                for (UUID pid : HoardPlugin.getInstance().getHoardData().getAllPlayerIds()) {
+                    long t = 0;
+                    for (Material m : job.getItems()) t += HoardPlugin.getInstance().getHoardData().getCount(pid, m);
+                    if (t > 0) jobTotals.put(pid, t);
+                }
+                java.util.List<java.util.Map.Entry<UUID, Long>> sorted = new java.util.ArrayList<>(jobTotals.entrySet());
+                sorted.sort((a, b) -> Long.compare(b.getValue(), a.getValue()));
+                int jobRank = -1;
+                for (int r = 0; r < sorted.size(); r++) {
+                    if (sorted.get(r).getKey().equals(player.getUniqueId())) { jobRank = r + 1; break; }
+                }
                 java.util.List<String> lore = new java.util.ArrayList<>();
                 lore.add(ChatColor.GRAY + totalLabel + ": " + job.getColor() + ChatColor.BOLD + String.format("%,d", total));
+                if (jobRank > 0) {
+                    String rc = jobRank == 1 ? "§6" : jobRank == 2 ? "§7" : jobRank == 3 ? "§c" : "§f";
+                    lore.add(ChatColor.GRAY + "Rank: " + rc + "#" + jobRank);
+                } else if (total > 0) {
+                    lore.add(ChatColor.GRAY + "Rank: §f#" + (sorted.size() + 1) + "+");
+                } else {
+                    lore.add(ChatColor.GRAY + "Rank: §7Unranked");
+                }
                 lore.add("");
                 lore.add(ChatColor.GRAY + "Click to view collection");
                 meta.setLore(lore);
