@@ -115,7 +115,7 @@ public class HoardGUI {
                 meta.getPersistentDataContainer().set(GUI_KEY, PersistentDataType.INTEGER, -1);
                 meta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
                 java.util.List<String> lore = new java.util.ArrayList<>();
-                String label = job == HoardJob.HUNTER ? "Kills" : job == HoardJob.FISHERMAN ? "Fished" : "Broken";
+                String label = job == HoardJob.HUNTER ? "Kills" : job == HoardJob.FISHERMAN ? "Fished" : job == HoardJob.MINER ? "Mined" : job == HoardJob.FARMER ? "Farmed" : "Broken";
                 lore.add(ChatColor.GRAY + label + ": " + ChatColor.WHITE + String.format("%,d", entry.getValue()));
                 meta.setLore(lore);
                 head.setItemMeta(meta);
