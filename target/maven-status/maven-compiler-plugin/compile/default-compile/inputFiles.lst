@@ -1,0 +1,7 @@
+/workspaces/hoard-plugin/src/main/java/dev/hoard/plugin/HoardCommand.java
+/workspaces/hoard-plugin/src/main/java/dev/hoard/plugin/HoardData.java
+/workspaces/hoard-plugin/src/main/java/dev/hoard/plugin/HoardGUI.java
+/workspaces/hoard-plugin/src/main/java/dev/hoard/plugin/HoardInventoryHolder.java
+/workspaces/hoard-plugin/src/main/java/dev/hoard/plugin/HoardJob.java
+/workspaces/hoard-plugin/src/main/java/dev/hoard/plugin/HoardListener.java
+/workspaces/hoard-plugin/src/main/java/dev/hoard/plugin/HoardPlugin.java

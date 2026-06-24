@@ -1,0 +1,18 @@
+name: Hoard
+version: 1.0.0
+main: dev.hoard.plugin.HoardPlugin
+api-version: 1.20
+author: HoardDev
+description: Per-item collection tracking with leaderboards
+commands:
+  hoard:
+    description: Open your hoard
+    usage: /hoard
+    permission: hoard.use
+permissions:
+  hoard.use:
+    description: Allows using hoard
+    default: true
+  hoard.admin:
+    description: Admin access
+    default: op
