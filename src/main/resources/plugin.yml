@@ -2,7 +2,7 @@ name: Hoard
 version: 1.0.0
 main: dev.hoard.plugin.HoardPlugin
 api-version: 1.20
-author: HoardDev
+author: Eternation
 description: Per-item collection tracking with leaderboards
 commands:
   hoard:

@@ -170,9 +170,16 @@ public class HoardListener implements Listener {
                 HoardJob job = holder.getJob();
                 if (tag == -2) {
                     plugin.getServer().getScheduler().runTask(plugin, () -> openMain(player));
-                } else if (tag >= 0 && tag < job.getItems().size()) {
-                    Material mat = job.getItems().get(tag);
-                    plugin.getServer().getScheduler().runTask(plugin, () -> openTop(player, mat, job));
+                } else if (tag >= 0) {
+                    // Get material from NBT directly
+                    String matName = clicked.getItemMeta().getPersistentDataContainer()
+                        .get(HoardGUI.MAT_KEY, org.bukkit.persistence.PersistentDataType.STRING);
+                    if (matName != null) {
+                        try {
+                            Material mat = Material.valueOf(matName);
+                            plugin.getServer().getScheduler().runTask(plugin, () -> openTop(player, mat, job));
+                        } catch (Exception ignored) {}
+                    }
                 }
             }
             case "top" -> {

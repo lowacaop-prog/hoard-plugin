@@ -30,7 +30,7 @@ public enum HoardJob {
         Material.MANGROVE_LOG, Material.CHERRY_LOG,
     }),
     HUNTER("Hunter", ChatColor.RED, Material.IRON_SWORD, new Material[]{
-        Material.ROTTEN_FLESH, Material.GUNPOWDER,
+        Material.ROTTEN_FLESH, Material.BONE, Material.GUNPOWDER,
         Material.STRING, Material.SPIDER_EYE, Material.ENDER_PEARL,
         Material.BLAZE_ROD, Material.WITHER_SKELETON_SKULL, Material.GOLD_NUGGET,
         Material.GHAST_TEAR, Material.MAGMA_CREAM, Material.SLIME_BALL,
