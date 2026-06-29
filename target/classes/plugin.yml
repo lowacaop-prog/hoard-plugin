@@ -9,6 +9,10 @@ commands:
     description: Open your hoard
     usage: /hoard
     permission: hoard.use
+  hoardwipe:
+    description: Wipe a player hoard data
+    usage: /hoardwipe <player>
+    permission: hoard.admin
 permissions:
   hoard.use:
     description: Allows using hoard

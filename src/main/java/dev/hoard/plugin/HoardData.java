@@ -46,6 +46,14 @@ public class HoardData {
         return list.subList(0, Math.min(10, list.size()));
     }
 
+    public void wipePlayer(UUID uuid) {
+        counts.remove(uuid);
+        playerNames.remove(uuid);
+        // Remove from file
+        data.set(uuid.toString(), null);
+        try { data.save(dataFile); } catch (java.io.IOException e) { e.printStackTrace(); }
+    }
+
     public Set<UUID> getAllPlayerIds() {
         return counts.keySet();
     }

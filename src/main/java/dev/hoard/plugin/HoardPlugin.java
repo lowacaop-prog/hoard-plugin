@@ -13,6 +13,7 @@ public class HoardPlugin extends JavaPlugin {
         hoardListener = new HoardListener(this);
         getServer().getPluginManager().registerEvents(hoardListener, this);
         getCommand("hoard").setExecutor(new HoardCommand(this));
+        getCommand("hoardwipe").setExecutor(new HoardWipeCommand(this));
         // Auto-save every 5 minutes
         new BukkitRunnable() {
             @Override

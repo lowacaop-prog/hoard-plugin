@@ -5,3 +5,4 @@
 /workspaces/hoard-plugin/src/main/java/dev/hoard/plugin/HoardJob.java
 /workspaces/hoard-plugin/src/main/java/dev/hoard/plugin/HoardListener.java
 /workspaces/hoard-plugin/src/main/java/dev/hoard/plugin/HoardPlugin.java
+/workspaces/hoard-plugin/src/main/java/dev/hoard/plugin/HoardWipeCommand.java
